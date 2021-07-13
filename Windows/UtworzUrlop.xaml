@@ -1,0 +1,45 @@
+﻿<Controls:MetroWindow x:Class="EwidencjaUrlopow.Windows.UtworzUrlop"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EwidencjaUrlopow.Windows"                      
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls" xmlns:viewmodel="clr-namespace:EwidencjaUrlopow.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:UtworzUrlopVM}"
+                      mc:Ignorable="d"
+        Title="Dodaj Urlop"  Height="290" Width="331" ResizeMode="NoResize">
+    <StackPanel>
+        <TextBlock Text="Data rozpoczęcia urlopu" Padding="10,5,5,5"/>
+        <DatePicker Background="WhiteSmoke" Margin="0,0,0,5" SelectedDate="{Binding dataRozpoczecia, StringFormat='d'}"/>
+        <TextBlock Text="Data zakończenia urlopu" Padding="10,5,5,5"/>
+        <DatePicker Background="WhiteSmoke" Margin="0,0,0,5" SelectedDate="{Binding dataZakonczenia, StringFormat='d'}"/>
+        <TextBlock Text="Opis urlopu:" Padding="10,5,5,5"/>
+        <TextBox Controls:TextBoxHelper.ClearTextButton="True" 
+                 Background="WhiteSmoke" 
+                 Controls:TextBoxHelper.Watermark="Opis urlopu"
+                 Text="{Binding opis}"
+                 Margin="0,0,0,5"/>
+        <TextBlock Text="ID pracownika:" Padding="10,5,5,5"/>
+        <TextBox Controls:TextBoxHelper.ClearTextButton="True" 
+                 Background="WhiteSmoke" 
+                 Controls:TextBoxHelper.Watermark="ID pracownika"
+                 Text="{Binding idPracownika}"
+                 Margin="0,0,0,5"/>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Content="Anuluj" 
+                    Style="{StaticResource MahApps.Styles.Button.Square.Accent}"
+                    Command="{Binding CancelAddLeaveCommand}"
+                    Margin="5,0,0,0"/>
+            <Button Grid.Column="1" Content="Dodaj"
+                    Command="{Binding AddLeaveCommand}"
+                    Style="{StaticResource MahApps.Styles.Button.Square.Accent}"
+                    Margin="5,0,5,0"/>
+        </Grid>
+
+    </StackPanel>
+    </Controls:MetroWindow>

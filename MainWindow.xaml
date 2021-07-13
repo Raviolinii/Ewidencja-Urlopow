@@ -1,0 +1,37 @@
+﻿<Controls:MetroWindow x:Class="EwidencjaUrlopow.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EwidencjaUrlopow"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        mc:Ignorable="d"
+        Title="Ewidencja urlopów" Height="450" Width="800" MinHeight="350" MinWidth="530">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="6*"/>
+        </Grid.RowDefinitions>
+
+        <Button Grid.Row="0" Grid.Column="0" 
+                Command="{Binding UpdateViewCommand}"
+                CommandParameter="Pracownik"
+                Content="Pracownik" Style="{StaticResource MahApps.Styles.Button.Square.Accent}"/>
+        <Button Grid.Row="0" Grid.Column="1" 
+                Command="{Binding UpdateViewCommand}"
+                CommandParameter="Urlop"
+                Content="Urlop" Style="{StaticResource MahApps.Styles.Button.Square.Accent}"/>
+        <Button Grid.Row="0" Grid.Column="2" 
+                Command="{Binding UpdateViewCommand}"
+                CommandParameter="Kalendarz"
+                Content="Kalendarz" Style="{StaticResource MahApps.Styles.Button.Square.Accent}"/>
+
+        <ContentControl Grid.Row="1" Grid.ColumnSpan="3" Content="{Binding selectedViewModel}"/>
+
+    </Grid>
+</Controls:MetroWindow>

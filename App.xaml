@@ -1,0 +1,37 @@
+﻿<Application x:Class="EwidencjaUrlopow.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:EwidencjaUrlopow"
+             xmlns:views="clr-namespace:EwidencjaUrlopow.View"
+             xmlns:viewmodel="clr-namespace:EwidencjaUrlopow.ViewModel"
+             xmlns:windows="clr-namespace:EwidencjaUrlopow.Windows"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- MahApps.Metro resource dictionaries. Make sure that all file names are Case Sensitive! -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <!-- Theme setting -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Light.Blue.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            
+            <DataTemplate DataType="{x:Type viewmodel:PracownikVM}">
+                <views:PracownikV/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewmodel:UrlopVM}">
+                <views:UrlopV/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewmodel:KalendarzVM}">
+                <views:KalendarzV/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewmodel:DodajPracownikaVM}">
+                <windows:DodajPracownika/>
+            </DataTemplate>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

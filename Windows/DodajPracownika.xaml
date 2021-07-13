@@ -1,0 +1,65 @@
+﻿<Controls:MetroWindow x:Class="EwidencjaUrlopow.Windows.DodajPracownika"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EwidencjaUrlopow.Windows" 
+        xmlns:viewmodel="clr-namespace:EwidencjaUrlopow.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:DodajPracownikaVM}"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        mc:Ignorable="d"
+        Title="Dodaj Pracownika" Height="350" Width="326" ResizeMode="NoResize">
+
+    <StackPanel>
+        <TextBlock Text="Imię:" Padding="10,5,5,5"/>
+        <TextBox Controls:TextBoxHelper.ClearTextButton="True" 
+                 Background="WhiteSmoke"
+                 Text="{Binding imie, TargetNullValue=''}"
+                 Controls:TextBoxHelper.Watermark="Imię nowego pracownika"
+                 Margin="0,0,0,5"/>
+
+        <TextBlock Text="Nazwisko:" Padding="10,5,5,5"/>
+        <TextBox Controls:TextBoxHelper.ClearTextButton="True" 
+                 Background="WhiteSmoke"
+                 Text="{Binding nazwisko, TargetNullValue=''}"
+                 Controls:TextBoxHelper.Watermark="Nazwisko nowego pracownika"
+                 Margin="0,0,0,5"/>
+
+        <TextBlock Text="Stanowisko pracy:" Padding="10,5,5,5"/>
+        <TextBox Controls:TextBoxHelper.ClearTextButton="True" 
+                 Background="WhiteSmoke"
+                 Text="{Binding stanowisko, TargetNullValue=''}"
+                 Controls:TextBoxHelper.Watermark="Stanowisko pracy nowego pracownika"
+                 Margin="0,0,0,5"/>
+
+        <TextBlock Text="Lata pracy:" Padding="10,5,5,5"/>
+        <TextBox Controls:TextBoxHelper.ClearTextButton="True" 
+                 Background="WhiteSmoke"
+                 Text="{Binding lataPracy, TargetNullValue=''}"
+                 Controls:TextBoxHelper.Watermark="Lata pracy nowego pracownika"
+                 Margin="0,0,0,5"/>
+
+        <TextBlock Text="Dostępny urlop:" Padding="10,5,5,5"/>
+        <TextBox Controls:TextBoxHelper.ClearTextButton="True" 
+                 Background="WhiteSmoke"
+                 Text="{Binding dostepnyUrlop, TargetNullValue=''}"
+                 Controls:TextBoxHelper.Watermark="Dostępny urlop nowego pracownika"
+                 Margin="0,0,0,5"/>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Anuluj" 
+                    Style="{StaticResource MahApps.Styles.Button.Square.Accent}"
+                    Command="{Binding CancelWorkerAddingCommand}"
+                    Margin="5,0,0,0"/>
+            <Button Grid.Column="1" Content="Dodaj"
+                    Command="{Binding AddWorkerCommand}"
+                    Style="{StaticResource MahApps.Styles.Button.Square.Accent}"
+                    Margin="5,0,5,0"/>
+        </Grid>
+
+    </StackPanel>
+
+</Controls:MetroWindow>
